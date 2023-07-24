@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sortable Table</title>
+  <p style="font-size:18px">Bivariate Correlation: Inflation-Adjusted Median Household Income & Mean Classification Score for Reviews Scored ≥ 0.5 by Columbia Foodborne NYC System, 2012 - 2021</p>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      cursor: pointer;
+    }
+
+    th:hover {
+      background-color: #f2f2f2;
+    }
+	.weakpos {
+      background-color: #edf8e9;
+    }
+	.weakneg {
+      background-color: #fee5d9;
+    }
+	.fairpos {
+      background-color: #bae4b3;
+    }
+	.fairneg {
+      background-color: #fcae91;
+    }
+	.modpos {
+      background-color: #74c476;
+    }
+	.modneg {
+      background-color: #fb6a4a;
+    }
+	.strongpos {
+      background-color: #31a354;
+    }
+  </style>
+</head>
+<body>
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Year</th>
+		<th onclick="sortTable(1)">Measure of Correlation</th>
+        <th onclick="sortTable(2)">Overall Coefficient</th>
+        <th onclick="sortTable(3)">p</th>
+		<th onclick="sortTable(4)">Bronx Coefficient</th>
+		<th onclick="sortTable(5)">p</th>
+		<th onclick="sortTable(6)">Brooklyn Coefficient</th>
+		<th onclick="sortTable(7)">p</th>
+		<th onclick="sortTable(8)">Manhattan Coefficient</th>
+		<th onclick="sortTable(9)">p</th>
+		<th onclick="sortTable(10)">Queens Coefficient</th>
+		<th onclick="sortTable(11)">p</th>
+		<th onclick="sortTable(12)">Staten Island Coefficient</th>
+		<th onclick="sortTable(13)">p</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2012</td> 
+		<td>r</td>
+        <td class="weakneg">-0.105</td> 
+        <td>0.076</td>
+		<td class="modpos">0.673</td>
+		<td>0.98</td>
+		<td class="weakneg">-0.012</td>
+		<td>0.901</td>
+		<td class="weakneg">-0.098</td>
+		<td>0.297</td>
+		<td class="weakpos">0.237</td>
+		<td>0.095</td>
+		<td class="fairneg">-0.594</td>
+		<td>0.12</td>
+      </tr>
+      <tr>
+        <td>2012</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.064</td>
+        <td>0.278</td>
+		<td class="strongpos">0.857</td>
+		<td>0.014*</td>
+		<td class="weakpos">0.016</td>
+		<td>0.872</td>
+		<td class="weakneg">-0.065</td>
+		<td>0.491</td>
+		<td class="weakpos">0.275</td>
+		<td>0.051*</td>
+		<td class="fairneg">-0.476</td>
+		<td>0.233</td>
+      </tr>
+      <tr>
+        <td>2013</td>
+		<td>r</td>
+        <td class="weakpos">0.0568</td>
+        <td>0.308</td>
+		<td class="fairneg">-0.478</td>
+		<td>0.061</td>
+		<td class="weakpos">0.11</td>
+		<td>0.259</td>
+		<td class="weakpos">0.097</td>
+		<td>0.279</td>
+		<td class="weakpos">0.036</td>
+		<td>0.783</td>
+		<td class="weakpos">0.140</td>
+		<td>0.632</td>
+      </tr>
+      <tr>
+        <td>2013</td>
+		<td>ρ</td>
+        <td class="weakpos">0.065</td>
+        <td>0.240</td>
+		<td class="fairneg">-0.429</td>
+		<td>0.097</td>
+		<td class="weakpos">0.077</td>
+		<td>0.426</td>
+		<td class="weakpos">0.137</td>
+		<td>0.123</td>
+		<td class="weakpos">0.103</td>
+		<td>0.431</td>
+		<td class="weakneg">-0.09</td>
+		<td>0.759</td>
+      </tr>
+      <tr>
+        <td>2014</td>
+		<td>r</td>
+        <td class="weakneg">-0.001</td>
+        <td>0.979</td>
+		<td class="weakneg">-0.106</td>
+		<td>0.665</td>
+		<td class="weakpos">0.016</td>
+		<td>0.851</td>
+		<td class="weakpos">0.007</td>
+		<td>0.938</td>
+		<td class="weakneg">-0.085</td>
+		<td>0.528</td>
+		<td class="weakneg">-0.204</td>
+		<td>0.35</td>
+      </tr>
+      <tr>
+        <td>2014</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.014</td>
+        <td>0.785</td>
+		<td class="weakneg">-0.03</td>
+		<td>0.904</td>
+		<td class="weakneg">-0.011</td>
+		<td>0.898</td>
+		<td class="weakpos">0.01</td>
+		<td>0.911</td>
+		<td class="weakneg">-0.119</td>
+		<td>0.378</td>
+		<td class="weakneg">-0.312</td>
+		<td>0.147</td>
+      </tr>
+      <tr>
+        <td>2015</td>
+		<td>r</td>
+        <td class="weakpos">0.037</td>
+        <td>0.428</td>
+		<td class="weakpos">0.05</td>
+		<td>0.824</td>
+		<td class="weakneg">-0.012</td>
+		<td>0.878</td>
+		<td class="weakpos">0.132</td>
+		<td>0.099</td>
+		<td class="weakpos">0.066</td>
+		<td>0.569</td>
+		<td class="weakneg">-0.078</td>
+		<td>0.707</td>
+      </tr>
+      <tr>
+        <td>2015</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.013</td>
+        <td>0.786</td>
+		<td class="weakpos">0.071</td>
+		<td>0.755</td>
+		<td class="weakneg">-0.047</td>
+		<td>0.538</td>
+		<td class="weakpos">0.072</td>
+		<td>0.366</td>
+		<td class="weakpos">0.082</td>
+		<td>0.482</td>
+		<td class="weakneg">-0.05</td>
+		<td>0.81</td>
+      </tr>
+      <tr>
+        <td>2016</td>
+		<td>r</td>
+        <td class="weakneg">-0.075</td>
+        <td>0.087</td>
+		<td class="weakneg">-0.106</td>
+		<td>0.527</td>
+		<td class="weakneg">-0.049</td>
+		<td>0.488</td>
+		<td class="weakneg">-0.185</td>
+		<td>0.021*</td>
+		<td class="weakneg">-0.101</td>
+		<td>0.333</td>
+		<td class="weakpos">0.133</td>
+		<td>0.491</td>
+      </tr>
+      <tr>
+        <td>2016</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.099</td>
+        <td>0.025*</td>
+		<td class="weakneg">-0.162</td>
+		<td>0.332</td>
+		<td class="weakneg">-0.04</td>
+		<td>0.567</td>
+		<td class="weakneg">-0.231</td>
+		<td>0.004**</td>
+		<td class="weakneg">-0.126</td>
+		<td>0.228</td>
+		<td class="weakpos">0.116</td>
+		<td>0.55</td>
+      </tr>
+      <tr>
+        <td>2017</td>
+		<td>r</td>
+        <td class="weakpos">0.012</td>
+        <td>0.799</td>
+		<td class="weakpos">0.001</td>
+		<td>0.997</td>
+		<td class="weakneg">-0.083</td>
+		<td>0.232</td>
+		<td class="weakpos">0.126</td>
+		<td>0.123</td>
+		<td class="weakneg">-0.083</td>
+		<td>0.485</td>
+		<td class="weakpos">0.181</td>
+		<td>0.421</td>
+      </tr>
+      <tr>
+        <td>2017</td>
+		<td>ρ</td>
+        <td class="weakpos">0.009</td>
+        <td>0.85</td>
+		<td class="weakpos">0.028</td>
+		<td>0.897</td>
+		<td class="weakneg">-0.079</td>
+		<td>0.258</td>
+		<td class="weakpos">0.136</td>
+		<td>0.095</td>
+		<td class="weakneg">-0.082</td>
+		<td>0.488</td>
+		<td class="weakpos">0.068</td>
+		<td>0.763</td>
+      </tr>
+      <tr>
+        <td>2018</td>
+		<td>r</td>
+        <td class="weakneg">-0.032</td>
+        <td>0.435</td>
+		<td class="weakneg">-0.096</td>
+		<td>0.55</td>
+		<td class="weakneg">-0.018</td>
+		<td>0.78</td>
+		<td class="weakneg">-0.016</td>
+		<td>0.832</td>
+		<td class="weakneg">-0.06</td>
+		<td>0.523</td>
+		<td class="weakneg">-0.26</td>
+		<td>0.105</td>
+      </tr>
+      <tr>
+        <td>2018</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.061</td>
+        <td>0.131</td>
+		<td class="weakneg">-0.095</td>
+		<td>0.553</td>
+		<td class="weakneg">-0.03</td>
+		<td>0.643</td>
+		<td class="weakneg">-0.055</td>
+		<td>0.477</td>
+		<td class="weakneg">-0.064</td>
+		<td>0.501</td>
+		<td class="weakneg">-0.25</td>
+		<td>0.12</td>
+      </tr>
+      <tr>
+        <td>2019</td>
+		<td>r</td>
+        <td class="weakpos">0.028</td>
+        <td>0.455</td>
+		<td class="weakpos">0.286</td>
+		<td>0.028*</td>
+		<td class="weakpos">0.021</td>
+		<td>0.729</td>
+		<td class="weakpos">0.026</td>
+		<td>0.719</td>
+		<td class="weakpos">0.006</td>
+		<td>0.941</td>
+		<td class="weakneg">-0.150</td>
+		<td>0.308</td>
+      </tr>
+      <tr>
+        <td>2019</td>
+		<td>ρ</td>
+        <td class="weakpos">0.007</td>
+        <td>0.854</td>
+		<td class="weakpos">0.278</td>
+		<td>0.033*</td>
+		<td class="weakpos">0.039</td>
+		<td>0.51</td>
+		<td class="weakneg">-0.037</td>
+		<td>0.615</td>
+		<td class="weakpos">0.064</td>
+		<td>0.466</td>
+		<td class="weakneg">-0.082</td>
+		<td>0.578</td>
+      </tr>
+      <tr>
+        <td>2020</td>
+		<td>r</td>
+        <td class="weakpos">0.056</td>
+        <td>0.209</td>
+		<td class="weakpos">0.223</td>
+		<td>0.156</td>
+		<td class="weakpos">0.039</td>
+		<td>0.615</td>
+		<td class="weakpos">0.079</td>
+		<td>0.341</td>
+		<td class="weakneg">-0.082</td>
+		<td>0.415</td>
+		<td class="weakpos">0.212</td>
+		<td>0.202</td>
+      </tr>
+      <tr>
+        <td>2020</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.03</td>
+        <td>0.504</td>
+		<td class="weakpos">0.181</td>
+		<td>0.251</td>
+		<td class="weakneg">-0.046</td>
+		<td>0.551</td>
+		<td class="weakpos">0.019</td>
+		<td>0.82</td>
+		<td class="weakneg">-0.089</td>
+		<td>0.374</td>
+		<td class="weakpos">0.152</td>
+		<td>0.361</td>
+      </tr>
+      <tr>
+        <td>2021</td>
+		<td>r</td>
+        <td class="weakpos">0.009</td>
+        <td>0.838</td>
+		<td class="weakpos">0.008</td>
+		<td>0.966</td>
+		<td class="weakpos">0.017</td>
+		<td>0.82</td>
+		<td class="weakneg">-0.049</td>
+		<td>0.556</td>
+		<td class="weakneg">-0.028</td>
+		<td>0.788</td>
+		<td class="weakneg">-0.107</td>
+		<td>0.587</td>
+      </tr>
+      <tr>
+        <td>2021</td>
+		<td>ρ</td>
+        <td class="weakneg">-0.03</td>
+        <td>0.519</td>
+		<td class="weakpos">0.009</td>
+		<td>0.958</td>
+		<td class="weakneg">-0.01</td>
+		<td>0.893</td>
+		<td class="weakneg">-0.098</td>
+		<td>0.242</td>
+		<td class="weakneg">-0.026</td>
+		<td>0.805</td>
+		<td class="weakpos">0.005</td>
+		<td>0.978</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>* significant at < 0.05 before adjusting for multiple comparisons</p>
+  <p>** significant at < 0.05 after adjusting for multiple comparisons (Bonferroni correction)</p>
+  <script>
+function sortTable(columnIndex) {
+  const table = document.getElementById("myTable");
+  const rows = table.rows;
+  let switching = true;
+  let shouldSwitch, i;
+
+  while (switching) {
+    switching = false;
+
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      const x = rows[i].getElementsByTagName("td")[columnIndex].textContent;
+      const y = rows[i + 1].getElementsByTagName("td")[columnIndex].textContent;
+
+      // Convert cell content to numeric value using parseFloat
+      const xNum = parseFloat(x); 
+      const yNum = parseFloat(y);
+
+      if (!isNaN(xNum) && !isNaN(yNum)) {
+        if (xNum > yNum) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (x.toLowerCase() > y.toLowerCase()) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+  </script>
+</body>
+</html>
