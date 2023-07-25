@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Histogram</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div style="width: 80%; margin: auto;">
+    <canvas id="histogramCanvas"></canvas>
+  </div>
+
+  <script>
+    const data = [627, 776, 1032, 1373, 1658, 1435, 2104, 2760, 1185, 1183];
+
+    const canvas = document.getElementById('histogramCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const histogramChart = new Chart(ctx, {
+      type: 'bar', // Use 'bar' for histograms
+      data: {
+        labels: ['2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021'], // Labels for each bar
+        datasets: [{
+          label: 'Number of Yelp Reviews Classified ≥ 0.5 by Columbia Foodborne NYC System, 2012 - 2021',
+          data: data,
+          backgroundColor: 'rgba(75, 192, 192, 0.5)', // Bar color
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            beginAtZero: true
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
